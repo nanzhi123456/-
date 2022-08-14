@@ -1,0 +1,15 @@
+.head_portrait_a {
+    display: inline-block;
+    padding: 10px 0px;
+    padding-left: 30px;
+}
+
+.head_portrait_a img,
+.head_portrait_b img {
+    height: 40px;
+    width: 40px;
+}
+
+.layui-icon-unlink {
+    font-size: 18px;
+}

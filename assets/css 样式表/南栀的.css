@@ -1,12 +1,12 @@
 html,
 body {
-    /* background-color: pink; */
     width: 100%;
     height: 100%;
     margin: 0;
     padding: 0;
-    background: url(../images/login_bg.jpg) ;
+    background: url(../images/login_bg.jpg);
 }
+
 .loginAndregBox {
     width: 400px;
     height: 310px;
@@ -14,10 +14,35 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform:translate(-50%,-50%);
+    transform: translate(-50%, -50%);
+    padding: 0 30px;
 }
+
 .title-box {
     height: 60px;
     width: 100%;
-    background: url(../images/login_title.png) no-repeat center ;
+    background: url(../images/login_title.png) no-repeat center;
+}
+.layui-btn{
+    width: 100%;
+}
+.register_a a,
+.register_b a{
+    margin-top: 15px;
+    padding-right: 5px;
+    float:right;
+}
+.layui-form-item{
+    position: relative;
+    
+}
+.layui-icon-username,
+.layui-icon-password{
+    position: absolute;
+    left: 2%;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+.layui-input{
+    padding-left: 30px;
 }
