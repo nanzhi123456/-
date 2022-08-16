@@ -1,19 +1,16 @@
 $(function () {
-    // 获取用户的基本信息
+    // 获取用户的基本信息函数调用
     getUserInfo()
+    // 这是给关闭按钮来一个点击事件
+    $('#btnLogout').on('click', function () {
+        layer.confirm('确定退出登录?', function (index) {
+            localStorage.removeItem('token');
+            location.href = './南栀.html'
+            layer.close(index);
+        });
+    })
 })
 function getUserInfo() {
-    // let headers = {
-    //     // 这是是从本地存储里面拿值
-    //     Authorization: localStorage.getItem('token') || ''
-    // }
-    // $.get("/my/userinfo", headers, function (res) {
-    //     console.log(res);
-    //     if (res.status !== 0) return layer.msg(res.message)
-    //     // 调用rendeAvatar获取用户的头像
-    //     // rendeAvatar()
-    // })
-    // 渲染头像的ajax
     $.ajax({
         method: "GET",
         url: "/my/userinfo",
@@ -23,6 +20,12 @@ function getUserInfo() {
             // 调用rendeAvatar获取用户的头像
             layer.msg(`欢迎您,${res.data.username}`)
             rendeAvatar(res.data)
+        },
+        complete: function (res) {
+            if (res.responseJSON.status == 1 && res.responseJSON.message == '身份认证失败！') {
+                localStorage.removeItem('token')
+                location.href = './南栀.html'
+            }
         }
     });
     // 这是渲染用户的头像
