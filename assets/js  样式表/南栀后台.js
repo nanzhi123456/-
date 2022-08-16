@@ -13,6 +13,7 @@ function getUserInfo() {
     //     // 调用rendeAvatar获取用户的头像
     //     // rendeAvatar()
     // })
+    // 渲染头像的ajax
     $.ajax({
         method: "GET",
         url: "/my/userinfo",
@@ -24,12 +25,23 @@ function getUserInfo() {
             console.log(res);
             if (res.status !== 0) return layer.msg(res.message)
             // 调用rendeAvatar获取用户的头像
-            layer.msg(res.message)
-            rendeAvatar()
+            layer.msg(`欢迎您,${res.data.username}`)
+            rendeAvatar(res.data)
         }
     });
     // 这是渲染用户的头像
-    function rendeAvatar() {
-        console.log('头像');
+    function rendeAvatar(res) {
+        let uname = res.nickname || res.username
+        if (res.user_pic !== null) {
+            // 3.1 渲染图片头像
+            $('.layui-nav-img').attr('src', res.data.user_pic).show()
+            $('.text-avatar').hide()
+        } else {
+            // 3.2 渲染文本头像
+            $('.layui-nav-img').hide()
+            $('.text-avatar').html(uname[0].toUpperCase()).show()
+        }
+        $('.usname_1').html(uname)
     }
+    // 渲染头像的ajax
 } 
