@@ -24,6 +24,7 @@ function getUserInfo() {
             console.log(res);
             if (res.status !== 0) return layer.msg(res.message)
             // 调用rendeAvatar获取用户的头像
+            layer.msg(res.message)
             rendeAvatar()
         }
     });

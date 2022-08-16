@@ -30,3 +30,7 @@ iframe {
 .head_portrait_a {
     border-bottom: 1px solid #282b33;
 }
+.layui-icon-app{
+    padding-left: 20px;
+    padding-right: 5px;
+}
