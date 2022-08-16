@@ -21,12 +21,6 @@ function getUserInfo() {
             layer.msg(`欢迎您,${res.data.username}`)
             rendeAvatar(res.data)
         },
-        complete: function (res) {
-            if (res.responseJSON.status == 1 && res.responseJSON.message == '身份认证失败！') {
-                localStorage.removeItem('token')
-                location.href = './南栀.html'
-            }
-        }
     });
     // 这是渲染用户的头像
     function rendeAvatar(res) {

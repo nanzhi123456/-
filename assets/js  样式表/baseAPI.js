@@ -12,4 +12,11 @@ $.ajaxPrefilter(function (options) {
       Authorization: localStorage.getItem('token') || ''
     }
   }
+  //全局统一挂载complete的函数
+  options.complete = function (res) {
+    if (res.responseJSON.status == 1 && res.responseJSON.message == '身份认证失败！') {
+      localStorage.removeItem('token')
+      location.href = './南栀.html'
+    }
+  }
 })
