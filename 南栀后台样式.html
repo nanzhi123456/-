@@ -35,7 +35,6 @@
                 <!-- 退出 -->
                 <li class="layui-nav-item" lay-header-event="menuRight" lay-unselect>
                     <a href="javascript:;">
-
                         <i class="layui-icon layui-icon-unlink"></i>
                         <span>退出</span>
                     </a>
@@ -51,7 +50,7 @@
                         欢迎您,南栀
                     </a>
                     <li class="layui-nav-item layui-this">
-                        <a href="javascript:;" class="layui-icon layui-icon-home"> 首页</a>
+                        <a href="./home 后台首页的页面效果/dashboard.html" target="fm" class="layui-icon layui-icon-home"> 首页</a>
                     </li>
                     <li class="layui-nav-item ">
                         <a class="" href="javascript:;">
@@ -90,16 +89,19 @@
 
         <div class="layui-body">
             <!-- 内容主体区域 -->
-            <div style="padding: 15px;">内容主体区域。记得修改 layui.css 和 js 的路径</div>
+            <iframe src="./home 后台首页的页面效果/dashboard.html" name="fm" frameborder="0"></iframe>
         </div>
 
         <div class="layui-footer">
             <!-- 底部固定区域 -->
-            底部固定区域
+            © www.itheima.com - 黑马程序员
         </div>
     </div>
     <script src="./assets/lib/layui/layui.all.js"></script>
     <!-- 自己的js -->
+    <script src="./assets/lib/jquery.js"></script>
+    <!-- 封装的访问网址的api -->
+    <script src="./assets/js  样式表/baseAPI.js"></script>
     <script src="./assets/js  样式表/南栀后台.js"></script>
     <!-- 自带的 -->
     <!-- <script>
