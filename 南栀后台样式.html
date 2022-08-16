@@ -17,43 +17,47 @@
     <div class="layui-layout layui-layout-admin">
         <div class="layui-header">
             <div class="layui-logo layui-hide-xs "><img src="./assets/images/logo.png" alt=""></div>
-            <!-- 头部区域（可配合layui 已有的水平导航） -->
+    <!-- 头部区域（可配合layui 已有的水平导航） -->
             <ul class="layui-nav layui-layout-left">
-                <!-- 移动端显示 -->
+    <!-- 移动端显示 -->
                 <li class="layui-nav-item layui-show-xs-inline-block layui-hide-sm" lay-header-event="menuLeft">
                     <i class="layui-icon layui-icon-spread-left"></i>
                 </li>
             </ul>
             <ul class="layui-nav layui-layout-right">
                 <li class="layui-nav-item layui-hide layui-show-md-inline-block">
+    <!-- 右上角顶部头像 -->
                     <a href="javascript:;" class="head_portrait_b">
-                        <img src="./assets/images/20.jpg" class="layui-nav-img">  个人中心</a>
+                        <img src="./assets/images/20.jpg" class="layui-nav-img"><span class="text-avatar">南</span> 个人中心</a>
                     <dl class="layui-nav-child">
                         <dd><a href="">基本资料</a></dd>
                         <dd><a href="">更换头像</a></dd>
                         <dd><a href="">重置密码</a></dd>
                     </dl>
                 </li>
-                <!-- 退出 -->
+<!-- 退出 -->
                 <li class="layui-nav-item" lay-header-event="menuRight" lay-unselect>
                     <a href="javascript:;">
                         <span class="iconfont icon-tuichu"></span>
-                        <span>  退出</span>
+                        <span> 退出</span>
                     </a>
                 </li>
             </ul>
         </div>
         <div class="layui-side layui-bg-black">
             <div class="layui-side-scroll">
-                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+    <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
                 <ul class="layui-nav layui-nav-tree" lay-filter="test">
+    <!-- 左侧头像 -->
                     <a href="javascript:;" class="layui-nav layui-nav-tree head_portrait_a">
                         <img src="./assets/images/20.jpg" class="layui-nav-img">
+                        <span class="text-avatar">南</span>
                         欢迎您,南栀
                     </a>
                     <li class="layui-nav-item layui-this">
                         <a href="./home 后台首页的页面效果/dashboard.html" target="fm" class="layui-icon layui-icon-home"> 首页</a>
                     </li>
+    <!-- 左侧文章管理 -->
                     <li class="layui-nav-item ">
                         <a class="" href="javascript:;">
                             <span class="layui-icon layui-icon-file-b"></span>
@@ -70,8 +74,9 @@
                                     发布文章</a></dd>
                         </dl>
                     </li>
+    <!-- 左侧栏个人中心 -->
                     <li class="layui-nav-item">
-                        <a href="javascript:;" class="layui-icon layui-icon-username">  个人中心</a>
+                        <a href="javascript:;" class="layui-icon layui-icon-username"> 个人中心</a>
                         <dl class="layui-nav-child">
                             <dd><a href="javascript:;">
                                     <span class=" layui-icon layui-icon-app"></span>
@@ -90,12 +95,12 @@
         </div>
 
         <div class="layui-body">
-            <!-- 内容主体区域 -->
+    <!-- 内容主体区域 -->
             <iframe src="./home 后台首页的页面效果/dashboard.html" name="fm" frameborder="0"></iframe>
         </div>
 
         <div class="layui-footer">
-            <!-- 底部固定区域 -->
+    <!-- 底部固定区域 -->
             © www.itheima.com - 黑马程序员
         </div>
     </div>
