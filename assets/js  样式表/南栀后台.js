@@ -17,10 +17,6 @@ function getUserInfo() {
     $.ajax({
         method: "GET",
         url: "/my/userinfo",
-        headers: {
-            // 这是是从本地存储里面拿值
-            Authorization: localStorage.getItem('token') || ''
-        },
         success: function (res) {
             console.log(res);
             if (res.status !== 0) return layer.msg(res.message)
