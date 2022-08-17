@@ -16,7 +16,6 @@ function getUserInfo() {
         method: "GET",
         url: "/my/userinfo",
         success: function (res) {
-            console.log(res);
             if (res.status !== 0) return layer.msg(res.message)
             // 调用rendeAvatar获取用户的头像
             layer.msg(`欢迎您,${res.data.nickname || res.data.username}`)
@@ -28,7 +27,7 @@ function getUserInfo() {
         let uname = res.nickname || res.username
         if (res.user_pic !== null) {
             // 3.1 渲染图片头像
-            $('.layui-nav-img').attr('src', res.data.user_pic).show()
+            $('.layui-nav-img').attr('src', res.user_pic).show()
             $('.text-avatar').hide()
         } else {
             // 3.2 渲染文本头像
