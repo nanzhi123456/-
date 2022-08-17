@@ -33,16 +33,24 @@ $(function () {
                 // 根据索引，关闭对应的弹出层
                 layer.close(indexAdd)
             }
-    
+
         })
     })
-    var indexEdit= null
-    $('tbody').on('click', '.btn-edit', function (e) {
-        indexEdit= layer.open({
+    var indexEdit = null
+    $('tbody').on('click', '.btn-edit', function () {
+        indexEdit = layer.open({
             type: 1,
             area: ['500px', '330px'],
             title: '修该文章分类',
             content: $('#dialog-edit').html()
+        })
+        var id = $(this).attr('data-id')
+        $.ajax({
+            method: "GET",
+            url: '/my/article/cates/' + id,
+            success: function (res) {
+                form.val('form-edit', res.data)
+            }
         })
     })
 })
