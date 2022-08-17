@@ -1,4 +1,5 @@
 $(function () {
+    form = layui.form
     // 获取用户的基本信息函数调用
     getUserInfo()
     // 这是给关闭按钮来一个点击事件
@@ -18,7 +19,7 @@ function getUserInfo() {
             console.log(res);
             if (res.status !== 0) return layer.msg(res.message)
             // 调用rendeAvatar获取用户的头像
-            layer.msg(`欢迎您,${res.data.username}`)
+            layer.msg(`欢迎您,${res.data.nickname || res.data.username}`)
             rendeAvatar(res.data)
         },
     });
