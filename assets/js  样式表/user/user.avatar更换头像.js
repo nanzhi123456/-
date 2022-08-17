@@ -1,4 +1,5 @@
 $(function () {
+    layer = layui.layer
     // 1.1 获取裁剪区域的 DOM 元素
     var $image = $('#image')
     // 1.2 配置选项
@@ -12,5 +13,16 @@ $(function () {
     $image.cropper(options)
     $('#btnChooseImage').on('click', function () {
         $('#file').click()
+    })
+    $('#file').on('change', function (e) {
+        if (e.target.files.length === 0) {
+            return layer.msg('请选择照片')
+        }
+        var file = e.target.files[0];
+        var newImgURL = URL.createObjectURL(file);
+        $image
+            .cropper('destroy')      // 销毁旧的裁剪区域
+            .attr('src', newImgURL)  // 重新设置图片路径
+            .cropper(options)        // 重新初始化裁剪区域
     })
 })
