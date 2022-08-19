@@ -1,5 +1,7 @@
 $(function () {
     var layer = layui.layer
+    var form = layui.form
+    var laypage = layui.laypage;
     // 查询的参数对象  
     // 格式化时间的过滤器
     template.defaults.imports.dataFormat = function (date) {
@@ -41,22 +43,47 @@ $(function () {
                 // 使用模板引擎渲染页面的数据
                 var hetmlstr = template('tpl-table', res)
                 $('tbody').html(hetmlstr)
+                renderPage(res.total)
             }
         })
     }
+    // 这是获取分类的ajax
     function initCate() {
         $.ajax({
             method: 'GET',
             url: '/my/article/cates',
             success: function (res) {
-                console.log(res);
-                if (res.status !== 0) return layer.msg('获取分类失败')
-                layer.msg('获取分类成功')
+                if (res.status !== 0) return layer.msg('获取分类失败');
+                layer.msg('获取分类成功');
                 // 渲染
-                var hetmlstr = template('tpl-cate', res)
+                var hetmlstr = template('tpl-cate', res);
                 $('[name=cate_id]').html(hetmlstr);
-
+                form.render();
             }
         })
+    }
+    // 分类的筛选
+    $('#form-search').on('submit', function (e) {
+        e.preventDefault();
+        var cate_id = $('[name=cate_id').val();
+        console.log(cate_id);
+        var state = $('[name=state').val();
+        q.cate_id = cate_id;
+        q.state = state;
+        initTable();
+    })
+    // 定义渲染分页的方法
+    function renderPage(total) {
+        // console.log(total);
+        laypage.render({
+            // 分页容器的id
+            elem: 'pageBox' //注意，这里的 test1 是 ID，不用加 # 号
+            // 总数据条数
+            , count: total,//数据总数，从服务端得到
+            // 每页显示几天的数据
+            limit: q.pagesize,
+            // 默认显示的分页
+            curr: q.pagenum
+        });
     }
 })
