@@ -2,13 +2,14 @@ $(function () {
     var layer = layui.layer
     var form = layui.form;
     initCate()
+    // 富文本编辑器的调用
     initEditor()
     function initCate() {
         $.ajax({
             method: 'GET',
             url: '/my/article/cates',
             success: function (res) {
-                if (res.status !== 0) return layer.msg('初始化文章失败!')
+                if (res.status !== 0) return layer.msg('初始化文章失败')
                 // layer.msg('获取列表成功')
                 // 这是调用模板引擎的方法
                 var htmlStr = template('tpl-cate', res)
@@ -29,6 +30,7 @@ $(function () {
     }
     // 3. 初始化裁剪区域
     $image.cropper(options)
+    // 上传点击按钮的事件
     $('.layui-btn-danger').on('click', function () {
         $('#coverFile').click()
     })
