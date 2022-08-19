@@ -8,7 +8,7 @@ $(function () {
             method: 'GET',
             url: '/my/article/cates',
             success: function (res) {
-                if (res.status !== 0) return layer.msg('获取列表失败')
+                if (res.status !== 0) return layer.msg('初始化文章失败!')
                 // layer.msg('获取列表成功')
                 // 这是调用模板引擎的方法
                 var htmlStr = template('tpl-cate', res)

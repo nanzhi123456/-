@@ -1,4 +1,5 @@
 $(function () {
+    layer = layui.layer
     form = layui.form
     initArtCateList()
     function initArtCateList() {
@@ -53,4 +54,36 @@ $(function () {
             }
         })
     })
+    // 通过代理的形式，为修改分类的表单绑定 submit 事件
+    $('body').on('submit', '#for-edit', function (e) {
+        e.preventDefault();
+        $.ajax({
+            method: 'post',
+            url: '/my/article/updatecate',
+            data: $(this).serialize(),
+            success: function (res) {
+                if (res.status !== 0) return layer.msg('更新分类数据失败')
+                layer.msg('更新分类数据成功');
+                layer.close(indexEdit);
+                initArtCateList()
+            }
+        })
+    })
+    // 删除
+    $('tbody').on('click', '.bun-delete', function () {
+        var id = $(this).attr('data-id')
+        layer.confirm('确认删除?', { icon: 3, title: '提示' }, function (index) {
+            $.ajax({
+                method: 'GET',
+                url: '/my/article/cates/' + id,
+                success: function (res) {
+                    if (res.status !== 0) return layer.msg('删除分类数据失败')
+                    layer.msg('删除分类数据成功');
+                    layer.close(index);
+                    initArtCateList()
+                }
+            })
+        })
+    })
 })
+// 本来中午想多吃俩个晚饭
