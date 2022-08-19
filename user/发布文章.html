@@ -16,7 +16,7 @@
 <body>
     <div class="layui-card">
         <div class="layui-card-header">写文章</div>
-        <form class="layui-form" id="form-;">
+        <form class="layui-form" id="form-pub">
             <!-- 第一行 -->
             <div class="layui-form-item">
                 <label class="layui-form-label">文章标题</label>
@@ -29,7 +29,7 @@
             <div class="layui-form-item">
                 <label class="layui-form-label">文章类别</label>
                 <div class="layui-input-block">
-                    <select name="cate_id" lay-verify="required"></select> 
+                    <select name="cate_id" lay-verify="required"></select>
                 </div>
             </div>
             <div class="layui-form-item">
@@ -59,7 +59,7 @@
             </div>
             <div class="layui-form-item">
                 <div class="layui-input-block">
-                    <button class="layui-btn  layui-btn_a" lay-submit>立即发布</button>
+                    <button class="layui-btn " lay-submit>立即发布</button>
                     <button class="layui-btn layui-btn-primary" id="btnSave2" lay-submit>存入草稿</button>
                 </div>
             </div>
@@ -70,6 +70,7 @@
             <option value="{{$value.Id}}">{{$value.name}}</option> 
             {{/each}}
         </script>
+        <!-- <script src="./文章列表.html"></script> -->
         <!-- jquery的插件 -->
         <script src="../assets/lib/jquery.js"></script>
         <!-- layui的js插件 -->

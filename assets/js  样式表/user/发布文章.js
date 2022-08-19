@@ -40,7 +40,7 @@ $(function () {
         var files = e.target.files
         // 判断用户是否选择了文件
         if (files.length === 0) {
-            return
+            return layer.msg('退出成功')
         }
         // 根据文件，创建对应的 URL 地址
         var newImgURL = URL.createObjectURL(files[0])
@@ -62,9 +62,9 @@ $(function () {
         var fd = new FormData($(this)[0])
         // 3. 将文章的发布状态，存到 fd 中
         fd.append('state', art_state)
+  
         // 4. 将封面裁剪过后的图片，输出为一个文件对象
-        $image
-            .cropper('getCroppedCanvas', {
+        $image.cropper('getCroppedCanvas', {
                 // 创建一个 Canvas 画布
                 width: 400,
                 height: 280
@@ -89,11 +89,11 @@ $(function () {
             processData: false,
             success: function (res) {
                 if (res.status !== 0) {
-                    return layer.msg('发布文章失败！')
+                    return layer.msg('操作失败！请联系管理员')
                 }
-                layer.msg('发布文章成功！')
+                layer.msg('操作成功！')
                 // 发布文章成功后，跳转到文章列表页面
-                // location.href = ''
+                location.href = './文章列表.html'
             }
         })
     }
