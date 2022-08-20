@@ -86,4 +86,7 @@ $(function () {
             curr: q.pagenum
         });
     }
+    $('tbody').on('click', '.btn-bianji', function () {
+        
+    })
 })
