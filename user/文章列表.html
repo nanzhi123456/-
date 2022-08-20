@@ -70,7 +70,7 @@
             <td>{{$value.state}}</td>
             <td>
                 <button type="button" class="layui-btn layui-btn layui-btn-xs btn-bianji" >编辑</button>
-                <button type="button" class="layui-btn layui-btn layui-btn-xs layui-btn layui-btn-danger">删除</button>
+                <button type="button" class="layui-btn layui-btn layui-btn-xs layui-btn layui-btn-danger  btn-delete" data-id="{{$value.Id}}">删除</button>
             </td>
         </tr>
         {{/each}}
@@ -95,11 +95,3 @@
 </body>
 
 </html>
-
-<!-- 发布文章
-编辑点击事件
-给跳转链接绑定文章id
-发起GET请求获取文章详情
-数据回显  文章类别的ajax是请求回来的  是异步任务 比数据回显慢
-富文本编辑器是一打开就显示,先给他赋值数据回显的数据 再初始化渲染
-图片的GET请求要拼接图片的域名才可以显示 -->
